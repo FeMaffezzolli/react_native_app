@@ -4,9 +4,10 @@ import { Text, StyleSheet, View, Image, TouchableOpacity } from 'react-native'
 import { capitalizeFirstLetter } from '../utils'
 
 const PeopleListItem = props => {
-    const {title, first, last} = props.person.name;
+    const {person, onPress} = props;
+    const {title, first, last} = person.name;
     return (
-        <TouchableOpacity onPress={() => alert(`Fala amigo ${first} !`)}>
+        <TouchableOpacity onPress={() => onPress()}>
             <View style={styles.line}>
                 <Image style={styles.avatar} source={{ uri: props.person.picture.thumbnail}} />
                 <Text style={styles.lineText}>

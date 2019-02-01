@@ -1,6 +1,7 @@
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import PeoplePage from './src/pages/PeoplePage';
+import PeopleDetailPage from './src/pages/PeopleDetailPage';
 // export default PeoplePage;
 
 const AppNavigator = createStackNavigator({
@@ -20,6 +21,9 @@ const AppNavigator = createStackNavigator({
         flexGrow: 1
       }
     }
+  },
+  'PeopleDetail': {
+    screen: PeopleDetailPage,
   }
 });
 
