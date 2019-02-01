@@ -30,7 +30,12 @@ export default class PeoplePage extends React.Component {
   render() {
     return (
       <View>
-        <PeopleList onPress={() => {this.props.navigation.navigate('PeopleDetail')}} people={this.state.people} />
+        <PeopleList
+            onPressItem={() => {
+                this.props.navigation.navigate('PeopleDetail')
+            }}
+            people={this.state.people}
+        />
       </View>
     );
   }

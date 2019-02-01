@@ -4,10 +4,25 @@ import PeoplePage from './src/pages/PeoplePage';
 import PeopleDetailPage from './src/pages/PeopleDetailPage';
 // export default PeoplePage;
 
-const AppNavigator = createStackNavigator({
-  'Main': {
-    screen: PeoplePage,
-    navigationOptions: {
+const AppNavigator = createStackNavigator(
+  {
+    Main: { screen: PeoplePage },
+    PeopleDetail: {
+      screen: PeopleDetailPage,
+      navigationOptions: {
+        title: 'Details',
+        headerTintColor: 'white',
+        headerTitleStyle: {
+          color: 'white',
+          fontSize: 30
+        }
+      }
+    }
+  },
+  {
+    initialRouteName: 'Main',
+    defaultNavigationOptions:
+    {
       title: 'People',
       headerStyle: {
         backgroundColor: '#6ca2f7',
@@ -21,11 +36,8 @@ const AppNavigator = createStackNavigator({
         flexGrow: 1
       }
     }
-  },
-  'PeopleDetail': {
-    screen: PeopleDetailPage,
   }
-});
+);
 
 const AppContainer = createAppContainer(AppNavigator);
 
