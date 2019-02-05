@@ -1,15 +1,21 @@
-import React from 'react'
-import { Text, StyleSheet, View } from 'react-native'
+import React from 'react';
+import { Text, StyleSheet, View } from 'react-native';
 
-export default Line = ({ label, content }) => {
+export default Line = ({ label="", content="-" }) => {
     return (
         <View style={styles.line}>
-            <Text style={[styles.cell, styles.label]}> { label } </Text>
+            <Text
+                style={[
+                    styles.cell,
+                    styles.label,
+                    label.length > 8 ? styles.longLabel : null
+                    ]}>
+                { label }
+            </Text>
             <Text style={styles.cell}> { content } </Text>
         </View>
     )
-}
-
+};
 
 const styles = StyleSheet.create({
     line: {
@@ -29,5 +35,8 @@ const styles = StyleSheet.create({
     },
     content: {
         flex: 3
+    },
+    longLabel: {
+        fontSize: 12,
     }
-})
+});

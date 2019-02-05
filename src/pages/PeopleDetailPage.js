@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Text, StyleSheet, View, Image } from 'react-native'
+import React, { Component } from 'react';
+import { Text, StyleSheet, View, Image } from 'react-native';
 import Line from '../components/Line';
 
 export default class PeopleDetailPage extends Component {
@@ -23,7 +23,7 @@ export default class PeopleDetailPage extends Component {
       </View>
     );
   }
-}
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -37,4 +37,4 @@ const styles = StyleSheet.create({
         marginTop      : 20,
         elevation      : 1
     }
-})
+});
