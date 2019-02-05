@@ -12,10 +12,14 @@ export default class PeopleDetailPage extends Component {
                 style={styles.avatar}
                 source={{ uri: person.picture.large }}
             />
-        <View style={styles.detailContainer}>
-            <Line label="Email:" content={person.email} />
-            <Line label="Cidade:" content={person.location.city} />
-        </View>
+            <View style={styles.detailContainer}>
+                <Line label="Email:"         content={person.email         } />
+                <Line label="Cidade:"        content={person.location.city } />
+                <Line label="Estado:"        content={person.location.state} />
+                <Line label="Tel:"           content={person.phone         } />
+                <Line label="Cel:"           content={person.cell          } />
+                <Line label="Nacionalidade:" content={person.nat           } />
+            </View>
       </View>
     );
   }

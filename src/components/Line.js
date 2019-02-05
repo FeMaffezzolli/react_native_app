@@ -23,7 +23,11 @@ const styles = StyleSheet.create({
         fontSize   : 18,
         paddingLeft: 5 ,
     },
-    content: {
+    label: {
         fontWeight: 'bold',
+        flex: 1
+    },
+    content: {
+        flex: 3
     }
 })
