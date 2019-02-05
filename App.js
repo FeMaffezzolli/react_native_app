@@ -10,7 +10,10 @@ const AppNavigator = createStackNavigator(
     PeopleDetail: {
       screen: PeopleDetailPage,
       navigationOptions: ({ navigation }) => {
-        const peopleName = navigation.state.params.person.name.first
+        const peopleName = capitalizeFirstLetter(
+          navigation.state.params.person.name.first
+        );
+
         return ({
           title: capitalizeFirstLetter(peopleName),
           headerTintColor: 'white',
@@ -18,7 +21,7 @@ const AppNavigator = createStackNavigator(
             color: 'white',
             fontSize: 30
           }
-        })
+        });
       }
     }
   },
