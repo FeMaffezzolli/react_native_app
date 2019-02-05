@@ -1,8 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Text, View, StyleSheet } from 'react-native';
 import axios from 'axios';
-
-// import Header from '../components/Header';
 import PeopleList from '../components/PeopleList';
 
 export default class PeoplePage extends React.Component {
@@ -11,10 +9,12 @@ export default class PeoplePage extends React.Component {
 		super(props);
 
 		this.state = {
-			people: []
+            people: [],
+            loading: true,
+            error: false
 		};
 
-	}
+	};
 
 	componentDidMount() {
         axios
@@ -22,21 +22,43 @@ export default class PeoplePage extends React.Component {
         .then(response => {
             const {results} = response.data;
             this.setState({
-            people: results
+                people: results,
+                loading: false
             });
         })
-	}
+        .catch(error => {
+            alert('Erro!');
+            this.setState({
+                loading: false,
+                error: true
+            });
+        });
+	};
 
 	render() {
 		return (
-			<View>
-				<PeopleList
-						onPressItem={(page, pageParams) => {
-								this.props.navigation.navigate(page, pageParams)
-						}}
-						people={this.state.people}
-				/>
+			<View style={styles.container}>
+                { this.state.loading
+                    ? <ActivityIndicator size="large" color="#6ca2f7" />
+                    : this.state.error
+                        ? <Text> Ops, algo deu errado D: </Text>
+                        : <PeopleList
+                            onPressItem={(page, pageParams) => {
+                                this.props.navigation.navigate(page, pageParams)
+                            }}
+                            people={this.state.people}
+                          />
+                }
 			</View>
 		);
-	}
-}
+	};
+};
+
+const styles = StyleSheet.create({
+    container: {
+        flex          : 1,
+        flexDirection : 'row',
+        justifyContent: 'center',
+        alignItems    : 'center'
+    }
+});

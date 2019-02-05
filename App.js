@@ -29,7 +29,7 @@ const AppNavigator = createStackNavigator(
     initialRouteName: 'Main',
     defaultNavigationOptions:
     {
-      title: 'People',
+      title: 'Random People',
       headerStyle: {
         backgroundColor: '#6ca2f7',
         borderBottomWidth: 1,

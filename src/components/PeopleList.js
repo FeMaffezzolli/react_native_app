@@ -7,7 +7,7 @@ const PeopleList = props => {
 
     const { people, onPressItem } = props;
 
-   return (
+    return (
        <FlatList
             style={styles.container}
             data={people}
@@ -19,7 +19,7 @@ const PeopleList = props => {
                 />)}
             keyExtractor={item => item.name.first}
         />
-    )
+    );
 };
 
 const styles = StyleSheet.create({
